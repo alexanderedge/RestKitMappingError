@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C4261C25BB844B9A64E2041 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE1430AC6C543DEB00B204F /* libPods.a */; };
 		DE423631167CF1810051EE7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE423630167CF1810051EE7C /* UIKit.framework */; };
 		DE423633167CF1810051EE7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE423632167CF1810051EE7C /* Foundation.framework */; };
 		DE423635167CF1810051EE7C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE423634167CF1810051EE7C /* CoreGraphics.framework */; };
@@ -18,9 +19,18 @@
 		DE423647167CF1810051EE7C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE423646167CF1810051EE7C /* Default-568h@2x.png */; };
 		DE42364A167CF1810051EE7C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE423648167CF1810051EE7C /* MainStoryboard.storyboard */; };
 		DE42364D167CF1810051EE7C /* AEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE42364C167CF1810051EE7C /* AEViewController.m */; };
+		DED9CBFF167CF4AC00799A15 /* AEConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = DED9CBFC167CF4AC00799A15 /* AEConversation.m */; };
+		DED9CC00167CF4AC00799A15 /* Example.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DED9CBFD167CF4AC00799A15 /* Example.xcdatamodeld */; };
+		DED9CC12167CF51300799A15 /* AEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = DED9CC0E167CF51200799A15 /* AEMessage.m */; };
+		DED9CC16167CF5DC00799A15 /* AETableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DED9CC15167CF5DC00799A15 /* AETableViewController.m */; };
+		DED9CC18167CF7F300799A15 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED9CC17167CF7F300799A15 /* SystemConfiguration.framework */; };
+		DED9CC1A167CF7F700799A15 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED9CC19167CF7F700799A15 /* MobileCoreServices.framework */; };
+		DED9CC2B167CFC6E00799A15 /* AEMessagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DED9CC2A167CFC6E00799A15 /* AEMessagesTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4AE1430AC6C543DEB00B204F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		573E6A93E865434EB0F325CC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		DE42362C167CF1810051EE7C /* RestKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE423630167CF1810051EE7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DE423632167CF1810051EE7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,6 +47,17 @@
 		DE423649167CF1810051EE7C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		DE42364B167CF1810051EE7C /* AEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AEViewController.h; sourceTree = "<group>"; };
 		DE42364C167CF1810051EE7C /* AEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AEViewController.m; sourceTree = "<group>"; };
+		DED9CBFB167CF4AC00799A15 /* AEConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEConversation.h; sourceTree = "<group>"; };
+		DED9CBFC167CF4AC00799A15 /* AEConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEConversation.m; sourceTree = "<group>"; };
+		DED9CBFE167CF4AC00799A15 /* Dattch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dattch.xcdatamodel; sourceTree = "<group>"; };
+		DED9CC0D167CF51200799A15 /* AEMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEMessage.h; sourceTree = "<group>"; };
+		DED9CC0E167CF51200799A15 /* AEMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEMessage.m; sourceTree = "<group>"; };
+		DED9CC14167CF5DC00799A15 /* AETableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AETableViewController.h; sourceTree = "<group>"; };
+		DED9CC15167CF5DC00799A15 /* AETableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AETableViewController.m; sourceTree = "<group>"; };
+		DED9CC17167CF7F300799A15 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DED9CC19167CF7F700799A15 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		DED9CC29167CFC6E00799A15 /* AEMessagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEMessagesTableViewController.h; sourceTree = "<group>"; };
+		DED9CC2A167CFC6E00799A15 /* AEMessagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEMessagesTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,9 +65,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DED9CC1A167CF7F700799A15 /* MobileCoreServices.framework in Frameworks */,
+				DED9CC18167CF7F300799A15 /* SystemConfiguration.framework in Frameworks */,
 				DE423631167CF1810051EE7C /* UIKit.framework in Frameworks */,
 				DE423633167CF1810051EE7C /* Foundation.framework in Frameworks */,
 				DE423635167CF1810051EE7C /* CoreGraphics.framework in Frameworks */,
+				8C4261C25BB844B9A64E2041 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +83,7 @@
 				DE423636167CF1810051EE7C /* RestKitExample */,
 				DE42362F167CF1810051EE7C /* Frameworks */,
 				DE42362D167CF1810051EE7C /* Products */,
+				573E6A93E865434EB0F325CC /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,9 +98,12 @@
 		DE42362F167CF1810051EE7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DED9CC19167CF7F700799A15 /* MobileCoreServices.framework */,
+				DED9CC17167CF7F300799A15 /* SystemConfiguration.framework */,
 				DE423630167CF1810051EE7C /* UIKit.framework */,
 				DE423632167CF1810051EE7C /* Foundation.framework */,
 				DE423634167CF1810051EE7C /* CoreGraphics.framework */,
+				4AE1430AC6C543DEB00B204F /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -88,6 +116,15 @@
 				DE423648167CF1810051EE7C /* MainStoryboard.storyboard */,
 				DE42364B167CF1810051EE7C /* AEViewController.h */,
 				DE42364C167CF1810051EE7C /* AEViewController.m */,
+				DED9CC14167CF5DC00799A15 /* AETableViewController.h */,
+				DED9CC15167CF5DC00799A15 /* AETableViewController.m */,
+				DED9CC29167CFC6E00799A15 /* AEMessagesTableViewController.h */,
+				DED9CC2A167CFC6E00799A15 /* AEMessagesTableViewController.m */,
+				DED9CBFB167CF4AC00799A15 /* AEConversation.h */,
+				DED9CBFC167CF4AC00799A15 /* AEConversation.m */,
+				DED9CC0D167CF51200799A15 /* AEMessage.h */,
+				DED9CC0E167CF51200799A15 /* AEMessage.m */,
+				DED9CBFD167CF4AC00799A15 /* Example.xcdatamodeld */,
 				DE423637167CF1810051EE7C /* Supporting Files */,
 			);
 			path = RestKitExample;
@@ -117,6 +154,7 @@
 				DE423628167CF1810051EE7C /* Sources */,
 				DE423629167CF1810051EE7C /* Frameworks */,
 				DE42362A167CF1810051EE7C /* Resources */,
+				397E47AB663548C8955E1B1C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -169,6 +207,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		397E47AB663548C8955E1B1C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DE423628167CF1810051EE7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -177,6 +232,11 @@
 				DE42363D167CF1810051EE7C /* main.m in Sources */,
 				DE423641167CF1810051EE7C /* AEAppDelegate.m in Sources */,
 				DE42364D167CF1810051EE7C /* AEViewController.m in Sources */,
+				DED9CBFF167CF4AC00799A15 /* AEConversation.m in Sources */,
+				DED9CC00167CF4AC00799A15 /* Example.xcdatamodeld in Sources */,
+				DED9CC12167CF51300799A15 /* AEMessage.m in Sources */,
+				DED9CC16167CF5DC00799A15 /* AETableViewController.m in Sources */,
+				DED9CC2B167CFC6E00799A15 /* AEMessagesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +314,7 @@
 		};
 		DE423651167CF1810051EE7C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 573E6A93E865434EB0F325CC /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RestKitExample/RestKitExample-Prefix.pch";
@@ -265,6 +326,7 @@
 		};
 		DE423652167CF1810051EE7C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 573E6A93E865434EB0F325CC /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RestKitExample/RestKitExample-Prefix.pch";
@@ -293,8 +355,22 @@
 				DE423652167CF1810051EE7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DED9CBFD167CF4AC00799A15 /* Example.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DED9CBFE167CF4AC00799A15 /* Dattch.xcdatamodel */,
+			);
+			currentVersion = DED9CBFE167CF4AC00799A15 /* Dattch.xcdatamodel */;
+			path = Example.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DE423623167CF1810051EE7C /* Project object */;
 }

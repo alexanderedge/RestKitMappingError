@@ -1,0 +1,15 @@
+{
+   "objectCount":4,
+   "conversations":[
+      {
+         "_id":"50452ae6804e62d22c00001a",
+         "latestMessage":{
+            "content":"Test",
+            "sender":"5045260f804e62d22c000018",
+            "sentAt":"2012-12-10T22:01:03.300Z",
+            "_id":"50c65b9f1e3cb59c4d000119"
+         },
+         "unread":false
+      }
+   ]
+}

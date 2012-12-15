@@ -8,11 +8,17 @@
 
 #import "AEAppDelegate.h"
 
+
+
+
 @implementation AEAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [self setUpRestKit];
+    
     return YES;
 }
 							
@@ -41,6 +47,130 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)setUpRestKit{
+    
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://127.0.0.1:4567"]];
+    
+    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
+    
+    manager.managedObjectStore = managedObjectStore;
+    
+    // Message objects
+    
+    RKEntityMapping *messageMapping = [RKEntityMapping mappingForEntityForName:@"AEMessage" inManagedObjectStore:managedObjectStore];
+    messageMapping.identificationAttributes = @[ @"messageId" ];
+    [messageMapping addAttributeMappingsFromDictionary:@{
+     @"_id" : @"messageId",
+     @"content" : @"content",
+     @"sentAt" : @"sentAt",
+     @"conversationId" : @"conversationId",
+     @"sender" : @"sender"
+     }];
+    
+    // Register our mappings with the provider
+    
+    [manager addResponseDescriptorsFromArray:@[
+     
+     [RKResponseDescriptor responseDescriptorWithMapping:messageMapping
+                                             pathPattern:@"/messages"
+                                                 keyPath:@"messages"
+                                             statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]
+     ]];
+    
+    [manager addRequestDescriptorsFromArray:@[
+     
+     [RKRequestDescriptor requestDescriptorWithMapping:[messageMapping inverseMapping] objectClass:[AEMessage class] rootKeyPath:nil]
+     
+     ]];
+    
+    
+   
+    // Conversation objects
+    
+    RKEntityMapping *conversationMapping = [RKEntityMapping mappingForEntityForName:@"AEConversation" inManagedObjectStore:managedObjectStore];
+    conversationMapping.identificationAttributes = @[ @"conversationId" ];
+    [conversationMapping addAttributeMappingsFromDictionary:@{
+     @"_id" : @"conversationId",
+     @"unread":@"unread"
+     }];
+    
+    [conversationMapping addRelationshipMappingWithSourceKeyPath:@"latestMessage" mapping:messageMapping];
+    
+    [manager addResponseDescriptorsFromArray:@[
+     
+     [RKResponseDescriptor responseDescriptorWithMapping:conversationMapping
+                                             pathPattern:@"/conversations"
+                                                 keyPath:@"conversations"
+                                             statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]
+     ]];
+    
+    
+    
+    
+    [manager addRequestDescriptorsFromArray:@[
+     
+     [RKRequestDescriptor requestDescriptorWithMapping:[conversationMapping inverseMapping] objectClass:[AEConversation class] rootKeyPath:nil]
+     
+     ]];
+    
+    // Pagination
+    
+    RKObjectMapping *paginationMapping = [RKObjectMapping mappingForClass:[RKPaginator class]];
+    
+    [paginationMapping addAttributeMappingsFromDictionary:@{
+     @"currentPage" : @"currentPage",
+     @"perPage" : @"perPage",
+     @"objectCount" : @"objectCount"}];
+    
+    
+    [[RKObjectManager sharedManager] setPaginationMapping:paginationMapping];
+    
+    // set the date parser up
+    
+    [RKObjectMapping addDefaultDateFormatterForString:@"yyyy-MMMM-d'T'HH:mm'Z'" inTimeZone:nil];
+    
+    
+    
+    
+    [[RKObjectManager sharedManager].router.routeSet addRoute:[RKRoute
+                                                               routeWithClass:[AEConversation class]
+                                                               pathPattern:@"/conversations"
+                                                               method:RKRequestMethodPOST]];
+    
+    [[RKObjectManager sharedManager].router.routeSet addRoute:[RKRoute
+                                                               routeWithClass:[AEMessage class]
+                                                               pathPattern:@"/messages"
+                                                               method:RKRequestMethodAny]];
+    
+    
+    
+    
+    
+    
+    [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
+    
+    /**
+     Complete Core Data stack initialization
+     */
+    [managedObjectStore createPersistentStoreCoordinator];
+    
+    NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"RestKitExample.sqlite"];
+    
+    NSError *error;
+    
+    NSPersistentStore *persistentStore = [managedObjectStore addSQLitePersistentStoreAtPath:storePath fromSeedDatabaseAtPath:nil withConfiguration:nil options:nil error:&error];
+    NSAssert(persistentStore, @"Failed to add persistent store with error: %@", error);
+    
+    // Create the managed object contexts
+    [managedObjectStore createManagedObjectContexts];
+    
+    // Configure a managed object cache to ensure we do not create duplicate objects
+    managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
+    
+    
 }
 
 @end
